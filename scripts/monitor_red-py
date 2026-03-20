@@ -1,0 +1,26 @@
+import os
+import platform
+import subprocess
+from datetime import datetime
+
+def check_ping(host):
+    param = '-c' if platform.system().lower() != 'windows' else '-n'
+    command = ['ping', param, '1', host]
+    return subprocess.call(command, stdout=subprocess.DEVNULL) == 0
+
+# Configuración del archivo de log
+log_file = "/home/javier/reportes/errores_red.txt"
+os.makedirs("/home/javier/reportes", exist_ok=True)
+
+print(f"--- DIAGNÓSTICO DE RED ({datetime.now().strftime('%H:%M')}) ---")
+sitio = "google.com"
+
+if check_ping(sitio):
+    print(f"✅ {sitio} está ALCANZABLE")
+else:
+    msg = f"[{datetime.now()}] ❌ ALERTA: Conexión perdida con {sitio}\n"
+    print(msg)
+    with open(log_file, "a") as f:
+        f.write(msg)
+
+print("--------------------------")

@@ -116,3 +116,7 @@ if ! shopt -oq posix; then
   fi
 fi
 alias ver='ls -R /home/javier/bot2/laboratorio'
+# Mis comandos personalizados
+alias check='python3 ~/scripts/monitor_red.py'
+alias audit='python3 ~/scripts/auditoria_sistema.py'
+alias update='git add . && git commit -m "Update general" && git push'
