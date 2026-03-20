@@ -1,0 +1,6 @@
+#!/bin/bash
+
+echo "¿Qué quieres buscar en YouTube, Javier?"
+read BUSQUEDA
+
+powershell.exe -c "start https://www.youtube.com/results?search_query=$BUSQUEDA"

@@ -1,0 +1,8 @@
+REPORTE DE ENTRENAMIENTO - Fri Mar 20 12:55:43 MDT 2026
+--------------------------------------
+1. Configuración de identidad digital (SSH Keys).
+2. Diagnóstico de red profesional (MTR).
+3. Comunicación entre sistemas (WSL a Windows).
+4. Primer programa en Python (saludo.py).
+--------------------------------------
+¡Nivel alcanzado: Principiante Avanzado!
