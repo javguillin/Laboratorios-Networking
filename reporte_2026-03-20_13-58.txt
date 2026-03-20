@@ -1,0 +1,6 @@
+--- REPORTE DE SISTEMA LINUX ---
+Fecha y Hora: 2026-03-20 13:58:00
+Nombre del equipo: ElEmrson
+Dirección IP local: 127.0.1.1
+Espacio libre en disco: 953 GB
+--------------------------------

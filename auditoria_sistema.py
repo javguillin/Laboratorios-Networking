@@ -1,20 +1,24 @@
 import os
 import socket
 import shutil
+from datetime import datetime
 
-print("--- REPORTE DE SISTEMA LINUX ---")
+# Configuración del nombre del archivo con la fecha de hoy
+fecha_hoy = datetime.now().strftime("%Y-%m-%d_%H-%M")
+nombre_archivo = f"reporte_{fecha_hoy}.txt"
 
-# 1. Obtener el nombre del equipo
-hostname = socket.gethostname()
-print(f"Nombre del equipo: {hostname}")
+reporte = []
+reporte.append("--- REPORTE DE SISTEMA LINUX ---")
+reporte.append(f"Fecha y Hora: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+reporte.append(f"Nombre del equipo: {socket.gethostname()}")
+reporte.append(f"Dirección IP local: {socket.gethostbyname(socket.gethostname())}")
 
-# 2. Obtener la IP local
-ip_local = socket.gethostbyname(hostname)
-print(f"Dirección IP local: {ip_local}")
-
-# 3. Revisar espacio en disco
 total, used, free = shutil.disk_usage("/")
-print(f"Espacio libre en disco: {free // (2**30)} GB")
+reporte.append(f"Espacio libre en disco: {free // (2**30)} GB")
+reporte.append("--------------------------------")
 
-print("--------------------------------")
-print("Reporte generado con éxito.")
+# Guardar en el archivo
+with open(nombre_archivo, "w") as f:
+    f.write("\n".join(reporte))
+
+print(f"✅ Reporte generado y guardado como: {nombre_archivo}")
