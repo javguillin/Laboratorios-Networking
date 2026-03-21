@@ -39,7 +39,7 @@ def check_red():
         f.write(html_content)
     
     # Lo movemos con sudo para que Apache lo vea
-    os.system(f"sudo cp temp_index.html {ruta_web}")
+    os.system(f"cp temp_index.html {ruta_web}")
 
 if __name__ == "__main__":
     check_red()
